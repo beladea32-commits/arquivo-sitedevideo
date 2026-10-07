@@ -1,0 +1,540 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #050505;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    opacity: .08;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        #ff0000 4px
+    );
+}
+
+.red-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    background: #ff0000;
+    filter: blur(180px);
+    opacity: .08;
+    pointer-events: none;
+}
+
+.screen {
+    position: relative;
+    z-index: 2;
+
+    min-height: 100vh;
+    width: 100%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.system-status {
+    position: absolute;
+    top: 25px;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #777;
+    text-align: center;
+}
+
+.crystal {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin-bottom: 30px;
+
+    transform: rotate(45deg);
+}
+
+.crystal-core {
+    position: absolute;
+    inset: 18px;
+
+    background: linear-gradient(
+        135deg,
+        #ff0000,
+        #6b0000,
+        #ff2222
+    );
+
+    box-shadow:
+        0 0 20px #ff0000,
+        0 0 60px rgba(255, 0, 0, .5);
+
+    animation: pulse 2s infinite;
+}
+
+.orbit {
+    position: absolute;
+    inset: -15px;
+
+    border: 1px solid rgba(255, 0, 0, .5);
+    border-radius: 50%;
+}
+
+.orbit1 {
+    transform: rotate(30deg);
+}
+
+.orbit2 {
+    transform: rotate(70deg) scaleY(.5);
+}
+
+.orbit3 {
+    transform: rotate(120deg) scaleY(.4);
+}
+
+.classification {
+    font-size: 10px;
+    color: #ff2222;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+h1,
+h2 {
+    font-family: "Cinzel", serif;
+}
+
+#accessScreen {
+    flex-direction: column;
+    text-align: center;
+}
+
+#accessScreen h1 {
+    font-size: clamp(28px, 8vw, 48px);
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+
+    text-shadow: 0 0 20px rgba(255, 0, 0, .6);
+}
+
+.intro {
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.password-box {
+    width: 100%;
+    max-width: 330px;
+}
+
+.password-box input {
+    width: 100%;
+    padding: 15px;
+
+    background: #090909;
+    border: 1px solid #400000;
+    outline: none;
+
+    color: white;
+    text-align: center;
+
+    border-radius: 5px;
+
+    margin-bottom: 12px;
+}
+
+.password-box input:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, .25);
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+
+    border: 1px solid #ff0000;
+    background: #100000;
+
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+    cursor: pointer;
+
+    border-radius: 5px;
+
+    transition: .3s;
+}
+
+button:hover {
+    background: #ff0000;
+    box-shadow: 0 0 25px rgba(255, 0, 0, .5);
+}
+
+#errorMessage {
+    color: #ff3333;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.loading-content {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.loading-title {
+    font-family: "Cinzel", serif;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.loading-bar {
+    width: 100%;
+    height: 5px;
+    background: #1a1a1a;
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background: #ff0000;
+    box-shadow: 0 0 15px red;
+    transition: width .1s;
+}
+
+#loadingText {
+    margin-top: 15px;
+    color: #777;
+    font-size: 12px;
+}
+
+.letter-card,
+.archive-card {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 30px 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 0, 0, .95),
+            rgba(5, 5, 5, .98)
+        );
+
+    border: 1px solid #450000;
+
+    box-shadow:
+        0 0 30px rgba(255, 0, 0, .12),
+        inset 0 0 30px rgba(255, 0, 0, .03);
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    animation: appear .8s ease;
+}
+
+.file-top,
+.file-number {
+    color: #ff2222;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.letter-card h2,
+.archive-card h2 {
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+#message {
+    white-space: pre-line;
+    color: #ddd;
+    line-height: 1.8;
+    font-size: 14px;
+    min-height: 250px;
+}
+
+#signature {
+    color: #ff3333;
+    margin: 25px 0;
+    font-family: "Cinzel", serif;
+}
+
+.archive-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.lock-icon {
+    width: 75px;
+    height: 75px;
+
+    margin: 10px auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+
+    border: 1px solid #550000;
+    border-radius: 50%;
+
+    background: #0d0000;
+
+    box-shadow: 0 0 25px rgba(255, 0, 0, .15);
+
+    transition: .5s;
+}
+
+.archive-description {
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.archive-warning {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #ff2222;
+    margin-bottom: 25px;
+}
+
+.secret-message {
+    display: none;
+
+    margin-top: 30px;
+    padding-top: 25px;
+
+    border-top: 1px solid #350000;
+
+    animation: secretAppear 1s ease;
+}
+
+.secret-message.show {
+    display: block;
+}
+
+.secret-line {
+    color: #ff2222;
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.secret-message p {
+    color: #ccc;
+    line-height: 1.8;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.secret-message .highlight {
+    color: white;
+    font-family: "Cinzel", serif;
+    font-size: 18px;
+
+    text-shadow: 0 0 15px rgba(255, 0, 0, .7);
+}
+
+.secret-signature {
+    color: #ff2222;
+    font-family: "Cinzel", serif;
+    margin: 25px 0;
+}
+
+.final-content {
+    text-align: center;
+    animation: appear 1s ease;
+}
+
+.final-heart {
+    font-size: 65px;
+    color: #ff0000;
+
+    text-shadow:
+        0 0 20px red,
+        0 0 50px rgba(255, 0, 0, .6);
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.final-content h1 {
+    font-size: clamp(40px, 12vw, 70px);
+    margin: 15px 0;
+    color: white;
+}
+
+.final-content p {
+    color: #888;
+    letter-spacing: 3px;
+    font-size: 11px;
+}
+
+.final-message {
+    margin-top: 25px;
+    color: #ddd !important;
+    line-height: 1.8;
+    letter-spacing: 1px !important;
+    font-size: 14px !important;
+}
+
+.final-signature {
+    margin: 30px 0;
+
+    color: #ff2222;
+    font-family: "Cinzel", serif;
+    font-size: 18px;
+}
+
+#restartButton {
+    max-width: 250px;
+}
+
+footer {
+    position: fixed;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
+
+    text-align: center;
+
+    color: #333;
+    font-size: 8px;
+    letter-spacing: 2px;
+
+    z-index: 5;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        filter: brightness(1.5);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.15);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes secretAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.shake {
+    animation: shake .35s;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-8px);
+    }
+
+    75% {
+        transform: translateX(8px);
+    }
+}
+
+@media (max-width: 500px) {
+
+    .screen {
+        padding: 20px;
+    }
+
+    .letter-card,
+    .archive-card {
+        padding: 25px 18px;
+    }
+
+    #accessScreen h1 {
+        font-size: 28px;
+    }
+
+    .letter-card h2,
+    .archive-card h2 {
+        font-size: 21px;
+    }
+
+    #message {
+        font-size: 13px;
+    }
+}

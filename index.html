@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivo Confidencial</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <canvas id="particles"></canvas>
+
+    <div class="scanlines"></div>
+    <div class="red-glow"></div>
+
+    <!-- TELA INICIAL -->
+    <section id="accessScreen" class="screen active">
+
+        <div class="system-status">
+            SISTEMA ONLINE // ARQUIVO ENCONTRADO
+        </div>
+
+        <div class="crystal">
+            <div class="crystal-core"></div>
+            <div class="orbit orbit1"></div>
+            <div class="orbit orbit2"></div>
+            <div class="orbit orbit3"></div>
+        </div>
+
+        <div class="classification">
+            CLASSIFICAÇÃO: CONFIDENCIAL
+        </div>
+
+        <h1>ACESSO RESTRITO</h1>
+
+        <p class="intro">
+            Um arquivo foi encontrado.<br>
+            Mas somente uma pessoa pode desbloqueá-lo.
+        </p>
+
+        <div class="password-box">
+            <input
+                type="password"
+                id="password"
+                placeholder="Digite a senha..."
+                autocomplete="off"
+            >
+
+            <button id="accessButton">
+                DESBLOQUEAR
+            </button>
+        </div>
+
+        <p id="errorMessage"></p>
+
+    </section>
+
+
+    <!-- CARREGAMENTO -->
+    <section id="loadingScreen" class="screen">
+
+        <div class="loading-content">
+
+            <div class="loading-title">
+                ACESSANDO ARQUIVO...
+            </div>
+
+            <div class="loading-bar">
+                <div id="progressBar"></div>
+            </div>
+
+            <p id="loadingText">
+                Verificando acesso...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CARTA -->
+    <section id="letterScreen" class="screen">
+
+        <div class="letter-card">
+
+            <div class="file-top">
+                ARQUIVO 01 // DESBLOQUEADO
+            </div>
+
+            <h2>Para Maiane...</h2>
+
+            <div id="message"></div>
+
+            <div id="signature"></div>
+
+            <button id="archiveButton">
+                ABRIR ARQUIVO 02 →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ARQUIVO 02 -->
+    <section id="archiveScreen" class="screen">
+
+        <div class="archive-card">
+
+            <div class="file-number">
+                ARQUIVO // 02
+            </div>
+
+            <div class="lock-icon" id="lockIcon">
+                🔒
+            </div>
+
+            <h2>ÚLTIMO ARQUIVO ENCONTRADO</h2>
+
+            <p class="archive-description">
+                Existe uma última mensagem escondida aqui.
+            </p>
+
+            <p class="archive-warning">
+                ACESSO NECESSÁRIO
+            </p>
+
+            <button id="unlockFinalButton">
+                DESBLOQUEAR ÚLTIMA MENSAGEM
+            </button>
+
+            <div id="secretMessage" class="secret-message">
+
+                <div class="secret-line">
+                    ARQUIVO 02 // ACESSO CONCEDIDO
+                </div>
+
+                <p>
+                    Maiane, se você chegou até aqui...
+                </p>
+
+                <p>
+                    então descobriu tudo que eu escondi
+                    nessa pequena surpresa.
+                </p>
+
+                <p>
+                    Mas talvez a parte mais importante
+                    seja simplesmente essa:
+                </p>
+
+                <p class="highlight">
+                    você é alguém especial para mim. ❤️
+                </p>
+
+                <p>
+                    E eu só queria que você soubesse disso.
+                </p>
+
+                <div class="secret-signature">
+                    — Bruno
+                </div>
+
+                <button id="finishButton">
+                    FINALIZAR ARQUIVO
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+    <section id="finalScreen" class="screen">
+
+        <div class="final-content">
+
+            <div class="final-heart">
+                ♥
+            </div>
+
+            <h1>Maiane</h1>
+
+            <p>
+                FIM DO ARQUIVO.
+            </p>
+
+            <p class="final-message">
+                Mas talvez essa história
+                esteja só começando. ❤️
+            </p>
+
+            <div class="final-signature">
+                — Bruno
+            </div>
+
+            <button id="restartButton">
+                VER NOVAMENTE
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        ARQUIVO CONFIDENCIAL // 2026
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
